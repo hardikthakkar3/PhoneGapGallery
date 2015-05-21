@@ -2,32 +2,33 @@
 
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    id="com.plugin.phonegapGallery"
+    id="com.plugin.phonegapCamera"
     version="0.0.1">
 
-    <name>PhoneGapGallery</name>
+    <name>PhoneGapCamera</name>
 
-    <description>Cordova/PhoneGap Gallery Plugin for Android</description>
+    <description>Cordova/PhoneGap Camera Plugin for Android</description>
 
     <license>MIT</license>
 
-    <keywords>cordova,phonegap,gallery,android</keywords>
+    <keywords>cordova,phonegap,camera,android</keywords>
 
-    <repo>https://github.com/hardikthakkar3/PhoneGapGallery.git</repo>
+    <repo>https://github.com/hardikthakkar3/PhoneGapCamera.git</repo>
 
     <!-- android -->
     <platform name="android">
         <config-file target="res/xml/config.xml" parent="/*">
-            <feature name="PhoneGapGallery">
-                <param name="android-package" value="com.plugin.gallery.PhoneGapGallery"/>
+            <feature name="PhoneGapCamera">
+                <param name="android-package" value="com.plugin.camera.PhoneGapCamera"/>
             </feature>
         </config-file>
 
-        <js-module src="www/android/gallery.js" name="DatePicker">
-            <clobbers target="window.plugins.phonegapGallery" />
+        <js-module src="www/android/camera.js" name="PhoneGapCamera">
+            <clobbers target="window.plugins.phonegapCamera" />
         </js-module>
 
-        <source-file src="src/android/ForegroundGalleryLauncher.java" target-dir="src/com/plugin/phonegapGallery" />
-		<source-file src="src/android/GalleryActivity.java" target-dir="src/com/plugin/phonegapGallery" />
+        <source-file src="src/android/CameraActivity.java" target-dir="src/com/plugin/phonegapCamera" />
+		<source-file src="src/android/ForegroundCameraLauncher.java" target-dir="src/com/plugin/phonegapCamera" />
+		<source-file src="src/android/ForegroundCameraPreview.java" target-dir="src/com/plugin/phonegapCamera" />
     </platform>
 </plugin>
