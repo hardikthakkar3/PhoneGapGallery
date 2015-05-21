@@ -1,5 +1,5 @@
-cordova.define("org.apache.cordova.shermcamera.ForegroundCameraLauncher", function(require, exports, module) {/*
-/**
+cordova.define("org.apache.cordova.shermcamera.ForegroundGalleryLauncher", function(require, exports, module) {/*
+/*
 	    Copyright 2013 Bruno Carreira - Lucas Farias - Rafael Luna - Vin�cius Fonseca. 
 
 		Licensed under the Apache License, Version 2.0 (the "License");
@@ -15,12 +15,12 @@ cordova.define("org.apache.cordova.shermcamera.ForegroundCameraLauncher", functi
    		limitations under the License.   			
 */
 
-/**
- * This class provides access to the device camera.
- *
- * @constructor
- */
-    var Camera = function() {
+    /**
+     * This class provides access to the gallery.
+     *
+     * @constructor
+     */
+    var Gallery = function() {
         this.successCallback = null;
         this.errorCallback = null;
         this.options = null;
@@ -28,27 +28,27 @@ cordova.define("org.apache.cordova.shermcamera.ForegroundCameraLauncher", functi
     var cordova = require('cordova'),
     exec = require('cordova/exec');
     /**
-     * Gets a picture from source defined by "options.sourceType", and returns the
-     * image as defined by the "options.destinationType" option.
-
-     * The defaults are sourceType=CAMERA and destinationType=DATA_URL.
+     * Function to set the parameters for using in gallery.
      *
      * @param {Function} successCallback
      * @param {Function} errorCallback
      * @param {Object} options
      */
-    Camera.prototype.getPicture = function(successCallback, errorCallback,
+    Gallery.prototype.getPicture = function(successCallback, errorCallback,
             options) {
+
         // successCallback required
         if (typeof successCallback !== "function") {
-            console.log("Camera Error: successCallback is not a function");
+            console.log("Gallery Error: successCallback is not a function");
             return;
         }
+
         // errorCallback optional
         if (errorCallback && (typeof errorCallback !== "function")) {
-            console.log("Camera Error: errorCallback is not a function");
+            console.log("Gallery Error: errorCallback is not a function");
             return;
         }
+
         if (options === null || typeof options === "undefined") {
             options = {};
         }
@@ -59,6 +59,7 @@ cordova.define("org.apache.cordova.shermcamera.ForegroundCameraLauncher", functi
                 || typeof options.maxResolution === "undefined") {
             options.maxResolution = 0;
         }
+
         if (options.targetWidth === null
                 || typeof options.targetWidth === "undefined") {
             options.targetWidth = -1;
@@ -77,13 +78,15 @@ cordova.define("org.apache.cordova.shermcamera.ForegroundCameraLauncher", functi
                 options.targetHeight = height.valueOf();
             }
         }
-        exec(successCallback, errorCallback, "ForegroundCameraLauncher", "takePicture",
-                [ options ]);
+
+        cordova.exec(successCallback, errorCallback, "ForegroundGalleryLauncher", "getPicture", [options]);
     };
+
     cordova.addConstructor(function() {
-        if (typeof navigator.shermcamera === "undefined") {
-            navigator.shermcamera = new Camera();
+        if (typeof navigator.shermgallery === "undefined") {
+            navigator.shermgallery = new Gallery();
         }
     });
-    module.exports = navigator.shermcamera;
+
+    module.exports = navigator.shermgallery;
 });
