@@ -16,7 +16,7 @@
  */
 
 
-package org.apache.cordova.shermcamera;
+package com.plugin.gallery;
 import java.net.URI;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -44,7 +44,6 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
-import com.rspl.eLearning.R;
 
 /**
  * Class to search images from the memory card. Based on

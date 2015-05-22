@@ -15,7 +15,7 @@
    		limitations under the License.   			
 */
 
-package org.apache.cordova.shermcamera;
+package com.plugin.gallery;
 
 import java.io.ByteArrayOutputStream;
 import java.io.FileNotFoundException;

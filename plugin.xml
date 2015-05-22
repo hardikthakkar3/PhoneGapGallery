@@ -27,7 +27,7 @@
             <clobbers target="window.plugins.phonegapGallery" />
         </js-module>
 
-        <source-file src="src/android/ForegroundGalleryLauncher.java" target-dir="src/com/plugin/phonegapGallery" />
-		<source-file src="src/android/GalleryActivity.java" target-dir="src/com/plugin/phonegapGallery" />		
+        <source-file src="src/android/ForegroundGalleryLauncher.java" target-dir="src/com/plugin/gallery/phonegapGallery" />
+		<source-file src="src/android/GalleryActivity.java" target-dir="src/com/plugin/gallery/phonegapGallery" />		
     </platform>
 </plugin>
